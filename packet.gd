@@ -131,7 +131,14 @@ func _deliver() -> void:
 	if not network.router_is_alive(dst_id):
 		on_network_drop()
 		return
-
+	
+	network.log_event("bytes_delivered", {
+		"packet_id": id,
+		"src_id": src_id,
+		"dst_id": dst_id,
+		"packet_type": str(packet_type),
+		"size_bytes": size_bytes
+	})
 	network.record_bytes_delivered(size_bytes)
 
 	var destination_router: Variant = network.routers[dst_id]
@@ -150,4 +157,16 @@ func on_network_drop(reason: StringName = &"router") -> void:
 
 	waiting_for_link = false
 	moving_on_link = false
+	
+	network.log_event("packet_dropped", {
+		"packet_id": id,
+		"src_id": src_id,
+		"dst_id": dst_id,
+		"packet_type": str(packet_type),
+		"size_bytes": size_bytes,
+		"reason": str(reason),
+		"link_from": current_link_from,
+		"link_to": current_link_to
+	})
+	
 	queue_free()

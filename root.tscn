@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://do6t2oev2aqip" path="res://paused.png" id="5_bf3um"]
 [ext_resource type="Texture2D" uid="uid://8qfblouet2lw" path="res://fast-forward.png" id="6_huihk"]
 [ext_resource type="ButtonGroup" uid="uid://b7d2j6dcbg5tr" path="res://edit_button_group.tres" id="7_qt76e"]
+[ext_resource type="Texture2D" uid="uid://cuok7i8ltw4yl" path="res://Icons-Land-Play-Stop-Pause-Record-Normal-Red.64.png" id="7_r3r3k"]
 [ext_resource type="Texture2D" uid="uid://cdou8xiv46hro" path="res://mail.png" id="7_tw3kd"]
+[ext_resource type="Texture2D" uid="uid://b57mipgqc62js" path="res://Google-Noto-Emoji-Travel-Places-42572-stop-sign.64.png" id="8_blcw0"]
 [ext_resource type="Texture2D" uid="uid://e61vw84tttot" path="res://document.png" id="8_gd4vy"]
 [ext_resource type="Texture2D" uid="uid://dk731d2cr812i" path="res://wifi-router.png" id="8_sq7yr"]
 [ext_resource type="Texture2D" uid="uid://b6ey3wn3s6red" path="res://youtube.png" id="9_qw60f"]
@@ -226,7 +228,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 mouse_filter = 1
-title = "Speed Controls"
+title = "Simulation Controls"
 title_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/SpeedPanel" unique_id=37361494]
@@ -275,6 +277,22 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "SIMULATION STOPPED"
 horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer" unique_id=2080004574]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RecordButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1495454549]
+layout_mode = 2
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource("7_r3r3k")
+texture_pressed = ExtResource("8_blcw0")
+
+[node name="RecordingLabel" type="Label" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=188519925]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start Recording"
 
 [node name="EditPanel" type="FoldableContainer" parent="CanvasLayer/HBoxContainer" unique_id=768885585]
 layout_mode = 2
@@ -420,6 +438,7 @@ horizontal_alignment = 1
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer/SlowButton" to="." method="_on_slow_button_pressed"]
 [connection signal="toggled" from="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer/PauseButton" to="." method="_on_pause_button_toggled"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer/FastButton" to="." method="_on_fast_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer2/RecordButton" to="." method="_on_record_button_toggled"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer/AddRouterButton" to="." method="_on_add_router_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer/AddLinkButton" to="." method="_on_add_link_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer/DisableButton" to="." method="_on_disable_button_pressed"]

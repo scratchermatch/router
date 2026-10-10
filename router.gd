@@ -91,7 +91,15 @@ func send_packet(
 	packet.payload = payload.duplicate(true)
 	packet.response = is_response
 	packet.size_bytes = int(payload.get("size_bytes", 64))
-
+	
+	network.log_event("packet_sent", {
+		"packet_id": packet.id,
+		"src_id": packet.src_id,
+		"dst_id": packet.dst_id,
+		"packet_type": str(packet.packet_type),
+		"size_bytes": packet.size_bytes
+	})
+	
 	if expects_response and not is_response:
 		var effective_timeout: float = network.default_router_timeout
 		if timeout > 0.0:
@@ -248,9 +256,18 @@ func simulation_step(delta: float) -> void:
 
 		if pending_packets[packet_id]["remaining"] <= 0.0:
 			expired_ids.append(packet_id)
-
+			
+	
+	
+	
 	for packet_id: int in expired_ids:
 		var info: Dictionary = pending_packets[packet_id]
+		network.log_event("timeout", {
+			"packet_id": packet_id,
+			"src_id": id,
+			"dst_id": info.get("destination_id", -1),
+			"packet_type": str(info.get("type", ""))
+		})
 		pending_packets.erase(packet_id)
 		network.timeouts += 1
 		network.record_packet_failure(info)
@@ -306,4 +323,14 @@ func handle_packet_response(packet: Node) -> void:
 	pending_packets.erase(packet_id)
 
 	var rtt: float = network.simulation_time - float(info["started_at"])
+	
+	network.log_event("packet_delivered", {
+		"packet_id": packet.id,
+		"src_id": packet.src_id,
+		"dst_id": packet.dst_id,
+		"packet_type": str(packet.packet_type),
+		"size_bytes": packet.size_bytes,
+		"rtt_seconds": rtt
+	})
+	
 	network.record_packet_success(info, rtt)

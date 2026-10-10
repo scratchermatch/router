@@ -3,6 +3,8 @@
 # Fast-forward icons created by Smashicons - Flaticon
 # Lines icons created by Dreamstale - Flaticon
 # Trash icon from IconArchive
+# <img src="https://icons.iconarchive.com/icons/icons-land/play-stop-pause/128/Record-Normal-Red-icon.png" width="128" height="128">
+# <img src="https://icons.iconarchive.com/icons/google/noto-emoji-travel-places/128/42572-stop-sign-icon.png" width="128" height="128">
 
 extends Node2D
 ## Manages network topology, simulation timing, traffic, and statistics.
@@ -118,6 +120,103 @@ func _process(delta: float) -> void:
 			max_client_send_delay
 		)
 
+
+
+## Whether event recording is currently active.
+var recording_enabled: bool = false
+
+## Recorded simulation events, stored in chronological order.
+var recording_events: Array[Dictionary] = []
+
+## CSV columns used when exporting simulation events.
+const RECORDING_COLUMNS: PackedStringArray = [
+	"simulation_time",
+	"event",
+	"packet_id",
+	"src_id",
+	"dst_id",
+	"packet_type",
+	"size_bytes",
+	"router_id",
+	"link_from",
+	"link_to",
+	"rtt_seconds",
+    "reason"
+]
+
+
+## Starts a new recording and clears previously recorded events.
+func start_recording() -> void:
+	recording_events.clear()
+	recording_enabled = true
+	log_event("recording_started")
+
+
+## Stops recording without deleting recorded events.
+func stop_recording() -> void:
+	if recording_enabled:
+		log_event("recording_stopped")
+	recording_enabled = false
+
+
+## Records an event with the current simulation timestamp.
+func log_event(event_name: String, details: Dictionary = {}) -> void:
+	if not recording_enabled and event_name != "recording_stopped":
+		return
+
+	var event: Dictionary = {
+		"simulation_time": simulation_time,
+		"event": event_name,
+		"packet_id": -1,
+		"src_id": -1,
+		"dst_id": -1,
+		"packet_type": "",
+		"size_bytes": 0,
+		"router_id": -1,
+		"link_from": -1,
+		"link_to": -1,
+		"rtt_seconds": -1.0,
+		"reason": ""
+	}
+
+	for key: Variant in details:
+		if event.has(key):
+			event[key] = details[key]
+
+	recording_events.append(event)
+
+
+## Exports recorded events to a CSV file.
+func export_recording(file_path: String = "user://packet_recording.csv") -> bool:
+	var file: FileAccess = FileAccess.open(file_path, FileAccess.WRITE)
+
+	if file == null:
+		push_error("Could not open recording file: %s" % file_path)
+		return false
+
+	file.store_line(_csv_row(RECORDING_COLUMNS))
+
+	for event: Dictionary in recording_events:
+		var values: PackedStringArray = []
+
+		for column: String in RECORDING_COLUMNS:
+			values.append(str(event.get(column, "")))
+
+		file.store_line(_csv_row(values))
+
+	file.close()
+	print("Exported %d events to %s" % [recording_events.size(), file_path])
+	return true
+
+
+## Converts values into a correctly escaped CSV row.
+func _csv_row(values: PackedStringArray) -> String:
+	var escaped_values: PackedStringArray = []
+
+	for value: String in values:
+		escaped_values.append("\"%s\"" % value.replace("\"", "\"\""))
+
+	return ",".join(escaped_values)
 
 ## Pauses or resumes simulation-time advancement.
 func set_simulation_paused(paused: bool) -> void:
@@ -912,3 +1011,13 @@ func _on_disable_button_pressed() -> void:
 
 func _on_trash_button_pressed() -> void:
 	set_edit_mode(EditMode.DELETE)
+
+
+func _on_record_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		start_recording()
+		%RecordingLabel.text = "RECORDING"
+	else:
+		stop_recording()
+		export_recording()
+		%RecordingLabel.text = "Saved as packet_recording.csv"
