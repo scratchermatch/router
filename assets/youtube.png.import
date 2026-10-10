@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuok7i8ltw4yl"
-path="res://.godot/imported/Icons-Land-Play-Stop-Pause-Record-Normal-Red.64.png-61eb8123ed5bc94e3d56f8d6e29f9f5f.ctex"
+uid="uid://b6ey3wn3s6red"
+path="res://.godot/imported/youtube.png-9b348b2d96a61eb34f4c23328bb4cce3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons-Land-Play-Stop-Pause-Record-Normal-Red.64.png"
-dest_files=["res://.godot/imported/Icons-Land-Play-Stop-Pause-Record-Normal-Red.64.png-61eb8123ed5bc94e3d56f8d6e29f9f5f.ctex"]
+source_file="res://assets/youtube.png"
+dest_files=["res://.godot/imported/youtube.png-9b348b2d96a61eb34f4c23328bb4cce3.ctex"]
 
 [params]
 

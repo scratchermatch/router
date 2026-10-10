@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bpdhlbiefxmrf"
+
+[deps]
+
+files=["res://data_analysis/sample_recording.event.translation", "res://data_analysis/sample_recording.packet.translation", "res://data_analysis/sample_recording.src.translation", "res://data_analysis/sample_recording.dst.translation", "res://data_analysis/sample_recording.packet.translation", "res://data_analysis/sample_recording.size.translation", "res://data_analysis/sample_recording.router.translation", "res://data_analysis/sample_recording.link.translation", "res://data_analysis/sample_recording.link.translation", "res://data_analysis/sample_recording.rtt.translation", "res://data_analysis/sample_recording.reason.translation"]
+
+source_file="res://data_analysis/sample_recording.csv"
+dest_files=["res://data_analysis/sample_recording.event.translation", "res://data_analysis/sample_recording.packet.translation", "res://data_analysis/sample_recording.src.translation", "res://data_analysis/sample_recording.dst.translation", "res://data_analysis/sample_recording.packet.translation", "res://data_analysis/sample_recording.size.translation", "res://data_analysis/sample_recording.router.translation", "res://data_analysis/sample_recording.link.translation", "res://data_analysis/sample_recording.link.translation", "res://data_analysis/sample_recording.rtt.translation", "res://data_analysis/sample_recording.reason.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

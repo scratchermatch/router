@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk731d2cr812i"
-path="res://.godot/imported/wifi-router.png-58d465c2ab88fceb5e36e3a37f94cfa6.ctex"
+uid="uid://b57mipgqc62js"
+path="res://.godot/imported/Google-Noto-Emoji-Travel-Places-42572-stop-sign.64.png-5c2df2a3b964d04a36c116977fe5db33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://wifi-router.png"
-dest_files=["res://.godot/imported/wifi-router.png-58d465c2ab88fceb5e36e3a37f94cfa6.ctex"]
+source_file="res://assets/Google-Noto-Emoji-Travel-Places-42572-stop-sign.64.png"
+dest_files=["res://.godot/imported/Google-Noto-Emoji-Travel-Places-42572-stop-sign.64.png-5c2df2a3b964d04a36c116977fe5db33.ctex"]
 
 [params]
 

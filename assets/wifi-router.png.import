@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6h4b0xphkakn"
-path="res://.godot/imported/nodes.png-b1e6fe06c85ceeb4e869d16ddaea56a2.ctex"
+uid="uid://dk731d2cr812i"
+path="res://.godot/imported/wifi-router.png-4a4f132ecbe0b06be106173b0e0a5a67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://nodes.png"
-dest_files=["res://.godot/imported/nodes.png-b1e6fe06c85ceeb4e869d16ddaea56a2.ctex"]
+source_file="res://assets/wifi-router.png"
+dest_files=["res://.godot/imported/wifi-router.png-4a4f132ecbe0b06be106173b0e0a5a67.ctex"]
 
 [params]
 

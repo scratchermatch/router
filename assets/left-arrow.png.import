@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cahds1ly7ig3q"
-path="res://.godot/imported/Amitjakhu-Drip-Trash.64.png-d914e174d118d2f169352d73f46c444a.ctex"
+uid="uid://cvj5qwkd55noi"
+path="res://.godot/imported/left-arrow.png-dba40b976d75597dca4e8b8a98b7b10b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Amitjakhu-Drip-Trash.64.png"
-dest_files=["res://.godot/imported/Amitjakhu-Drip-Trash.64.png-d914e174d118d2f169352d73f46c444a.ctex"]
+source_file="res://assets/left-arrow.png"
+dest_files=["res://.godot/imported/left-arrow.png-dba40b976d75597dca4e8b8a98b7b10b.ctex"]
 
 [params]
 
