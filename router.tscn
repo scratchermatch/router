@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c82ko2ojb6hbj"]
+
+[ext_resource type="Texture2D" uid="uid://dk731d2cr812i" path="res://wifi-router.png" id="1_vxgix"]
+[ext_resource type="Texture2D" uid="uid://7xh143dbs1og" path="res://close.png" id="2_7j14m"]
+[ext_resource type="Script" uid="uid://3phfx16p36bf" path="res://router.gd" id="2_vxgix"]
+
+[node name="Router" type="TextureButton" unique_id=2010901766]
+toggle_mode = true
+texture_normal = ExtResource("1_vxgix")
+texture_pressed = ExtResource("2_7j14m")
+script = ExtResource("2_vxgix")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

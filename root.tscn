@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cnxtx71jgfbym"]
+
+[ext_resource type="Script" uid="uid://b3cvcc3qkrvhm" path="res://root.gd" id="1_pyidc"]
+[ext_resource type="Script" uid="uid://cq23qqthxe58q" path="res://camera_2d.gd" id="2_pyidc"]
+
+[node name="root" type="Node2D" unique_id=448470336]
+script = ExtResource("1_pyidc")
+num_routers = 50
+num_connnections = null
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1357833214]
+script = ExtResource("2_pyidc")

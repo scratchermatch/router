@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="router"
+run/main_scene="uid://cnxtx71jgfbym"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Signals="*uid://cdw11tc6uipfa"
 
 [display]
 
