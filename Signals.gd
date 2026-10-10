@@ -1,5 +1,5 @@
 extends Node
 
-@warning_ignore("unused_signal")
+@warning_ignore_start("unused_signal")
 signal router_disabled(id)
 signal router_enabled(id)

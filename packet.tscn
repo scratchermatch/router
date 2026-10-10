@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cpmged7yex2li"]
+
+[ext_resource type="Texture2D" uid="uid://cdou8xiv46hro" path="res://mail.png" id="1_7wo6q"]
+[ext_resource type="Script" uid="uid://dygxoty0vwlt3" path="res://packet.gd" id="1_an3gc"]
+
+[node name="Packet" type="Sprite2D" unique_id=511538945]
+texture = ExtResource("1_7wo6q")
+script = ExtResource("1_an3gc")

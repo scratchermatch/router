@@ -5,8 +5,78 @@
 
 [node name="root" type="Node2D" unique_id=448470336]
 script = ExtResource("1_pyidc")
-num_routers = 50
-num_connnections = null
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1357833214]
+offset = Vector2(1150, 650)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("2_pyidc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1606449651]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1365798579]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -137.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=431223299]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=320894018]
+layout_mode = 2
+
+[node name="SentLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1054322712]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Packets Sent:"
+
+[node name="ReceivedLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=284499486]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Packets Received:"
+
+[node name="SuccessesLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1442148713]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Successes:"
+
+[node name="FailuresLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1834594698]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Failures:"
+
+[node name="LossRateLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1355800329]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loss Rate:"
+
+[node name="TimeoutsLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1139318334]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Timeouts: "
+
+[node name="QueueDropsLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=196895906]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Queue Drops: "
+
+[node name="RouterDropsLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=701247624]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Router Drops: "
+
+[node name="AverageRttLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=649931793]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Average RTT:"
+
+[node name="BandwidthLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1600346411]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Throughput:"
