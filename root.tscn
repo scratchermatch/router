@@ -2,6 +2,31 @@
 
 [ext_resource type="Script" uid="uid://b3cvcc3qkrvhm" path="res://root.gd" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://cq23qqthxe58q" path="res://camera_2d.gd" id="2_pyidc"]
+[ext_resource type="Texture2D" uid="uid://cvj5qwkd55noi" path="res://left-arrow.png" id="3_l8v81"]
+[ext_resource type="Texture2D" uid="uid://dy0psvl2ukppu" path="res://unpaused.png" id="4_vyht1"]
+[ext_resource type="Texture2D" uid="uid://do6t2oev2aqip" path="res://paused.png" id="5_bf3um"]
+[ext_resource type="Texture2D" uid="uid://8qfblouet2lw" path="res://fast-forward.png" id="6_huihk"]
+[ext_resource type="ButtonGroup" uid="uid://b7d2j6dcbg5tr" path="res://edit_button_group.tres" id="7_qt76e"]
+[ext_resource type="Texture2D" uid="uid://cdou8xiv46hro" path="res://mail.png" id="7_tw3kd"]
+[ext_resource type="Texture2D" uid="uid://e61vw84tttot" path="res://document.png" id="8_gd4vy"]
+[ext_resource type="Texture2D" uid="uid://dk731d2cr812i" path="res://wifi-router.png" id="8_sq7yr"]
+[ext_resource type="Texture2D" uid="uid://b6ey3wn3s6red" path="res://youtube.png" id="9_qw60f"]
+[ext_resource type="Texture2D" uid="uid://c6h4b0xphkakn" path="res://nodes.png" id="9_r3r3k"]
+[ext_resource type="Texture2D" uid="uid://7xh143dbs1og" path="res://close.png" id="10_blcw0"]
+[ext_resource type="Texture2D" uid="uid://c8xs4t2dvxpa5" path="res://letter.png" id="10_eji0w"]
+[ext_resource type="Texture2D" uid="uid://cahds1ly7ig3q" path="res://Amitjakhu-Drip-Trash.64.png" id="11_50g4q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3dlgs"]
+load_path = "res://.godot/imported/wifi-router.png-58d465c2ab88fceb5e36e3a37f94cfa6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vte5o"]
+load_path = "res://.godot/imported/nodes.png-b1e6fe06c85ceeb4e869d16ddaea56a2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_po8fv"]
+load_path = "res://.godot/imported/close.png-c89f9f6cbace982cd5953d12c11f6715.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ub8w1"]
+load_path = "res://.godot/imported/Amitjakhu-Drip-Trash.64.png-d914e174d118d2f169352d73f46c444a.ctex"
 
 [node name="root" type="Node2D" unique_id=448470336]
 script = ExtResource("1_pyidc")
@@ -13,70 +38,392 @@ script = ExtResource("2_pyidc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1606449651]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1365798579]
-anchors_preset = 1
-anchor_left = 1.0
+[node name="SettingsPanel" type="FoldableContainer" parent="CanvasLayer" unique_id=2074225215]
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -137.0
-offset_bottom = 50.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+title = "Simulation Parameters"
+title_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=431223299]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SettingsPanel" unique_id=593468315]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/SettingsPanel/HBoxContainer" unique_id=245804316]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="MinClientSendDelayLabel" type="Label" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer" unique_id=1360304695]
+layout_mode = 2
+text = "Minimum Client Send Delay"
+
+[node name="MinSendDelay" type="SpinBox" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer" unique_id=899989054]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.15000000000000002
+suffix = "seconds"
+
+[node name="MaxClientSendDelayLabel" type="Label" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer" unique_id=1674544950]
+layout_mode = 2
+text = "Maximum Client Send Delay"
+
+[node name="MaxSendDelay" type="SpinBox" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer" unique_id=472498736]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 0.02
+max_value = 2.0
+step = 0.01
+value = 0.30000000000000004
+suffix = "seconds"
+
+[node name="RouterTimeoutLabel" type="Label" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer" unique_id=161774217]
+layout_mode = 2
+text = "Default Router Timeout"
+
+[node name="RouterTimeout" type="SpinBox" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer" unique_id=473771992]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+step = 0.5
+value = 3.0
+allow_greater = true
+suffix = "seconds"
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/SettingsPanel/HBoxContainer" unique_id=701096775]
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer/SettingsPanel/HBoxContainer" unique_id=2034498485]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="LinkCapLabel" type="Label" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2" unique_id=2092577702]
+layout_mode = 2
+text = "Link Capacity"
+
+[node name="LinkCapacity" type="SpinBox" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2" unique_id=1889445653]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 100.0
+max_value = 1000000000.0
+value = 10000000.0
+rounded = true
+allow_greater = true
+suffix = "Bytes/second"
+
+[node name="QueueSizeLabel" type="Label" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2" unique_id=1131423462]
+layout_mode = 2
+text = "Max Link Queue Size"
+
+[node name="MaxLinkQueueSize" type="SpinBox" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2" unique_id=555736187]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+value = 3.0
+rounded = true
+allow_greater = true
+
+[node name="PacketSpeedLabel" type="Label" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2" unique_id=199064923]
+layout_mode = 2
+text = "Packet Speed"
+
+[node name="PacketSpeed" type="SpinBox" parent="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2" unique_id=314552716]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 100.0
+max_value = 10000.0
+value = 5000.0
+rounded = true
+allow_greater = true
+suffix = "px/s"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1310203823]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="StatsPanel" type="FoldableContainer" parent="CanvasLayer/HBoxContainer" unique_id=925067831]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 1
+title = "Simulation Statistics"
+title_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/StatsPanel" unique_id=1095468231]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=320894018]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer" unique_id=1604689868]
 layout_mode = 2
 
-[node name="SentLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1054322712]
+[node name="SentLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=551194628]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Packets Sent:"
 
-[node name="ReceivedLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=284499486]
+[node name="ReceivedLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=2139267470]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Packets Received:"
 
-[node name="SuccessesLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1442148713]
+[node name="SuccessesLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=620945409]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Successes:"
 
-[node name="FailuresLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1834594698]
+[node name="FailuresLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=1810179450]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Failures:"
 
-[node name="LossRateLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1355800329]
+[node name="LossRateLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=1893098642]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Loss Rate:"
 
-[node name="TimeoutsLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1139318334]
+[node name="TimeoutsLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=1688674186]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Timeouts: "
 
-[node name="QueueDropsLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=196895906]
+[node name="QueueDropsLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=893875784]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Queue Drops: "
 
-[node name="RouterDropsLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=701247624]
+[node name="RouterDropsLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=1649007836]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Router Drops: "
 
-[node name="AverageRttLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=649931793]
+[node name="AverageRttLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=1270265827]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Average RTT:"
 
-[node name="BandwidthLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1600346411]
+[node name="BandwidthLabel" type="Label" parent="CanvasLayer/HBoxContainer/StatsPanel/MarginContainer/VBoxContainer" unique_id=54671493]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Throughput:"
+
+[node name="SpeedPanel" type="FoldableContainer" parent="CanvasLayer/HBoxContainer" unique_id=186340000]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 1
+title = "Speed Controls"
+title_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/SpeedPanel" unique_id=37361494]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer" unique_id=652064819]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer" unique_id=1307703552]
+layout_mode = 2
+alignment = 1
+
+[node name="SlowButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1778040455]
+layout_mode = 2
+texture_normal = ExtResource("3_l8v81")
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=777308742]
+layout_mode = 2
+
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=466421230]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("4_vyht1")
+texture_pressed = ExtResource("5_bf3um")
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=803947973]
+layout_mode = 2
+
+[node name="FastButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=42710594]
+layout_mode = 2
+texture_normal = ExtResource("6_huihk")
+
+[node name="SimSpeedLabel" type="Label" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer" unique_id=825855556]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Current Sim Speed: 1.0x"
+horizontal_alignment = 1
+
+[node name="SimPausedLabel" type="Label" parent="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer" unique_id=1012863170]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SIMULATION STOPPED"
+horizontal_alignment = 1
+
+[node name="EditPanel" type="FoldableContainer" parent="CanvasLayer/HBoxContainer" unique_id=768885585]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 1
+title = "Editor"
+title_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/EditPanel" unique_id=1509848832]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer" unique_id=1209088642]
+layout_mode = 2
+columns = 2
+
+[node name="AddRouterButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer" unique_id=2090394334]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("7_qt76e")
+texture_normal = ExtResource("8_sq7yr")
+texture_pressed = SubResource("CompressedTexture2D_3dlgs")
+
+[node name="AddRouterLabel" type="Label" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer" unique_id=886798774]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add Router"
+
+[node name="AddLinkButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer" unique_id=250547341]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("7_qt76e")
+texture_normal = ExtResource("9_r3r3k")
+texture_pressed = SubResource("CompressedTexture2D_vte5o")
+
+[node name="AddLinkLabel" type="Label" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer" unique_id=48554476]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Link Tool"
+
+[node name="DisableButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer" unique_id=15318025]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("7_qt76e")
+texture_normal = ExtResource("10_blcw0")
+texture_pressed = SubResource("CompressedTexture2D_po8fv")
+
+[node name="DisableLabel" type="Label" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer" unique_id=1560982447]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Disable Mode"
+
+[node name="TrashButton" type="TextureButton" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer" unique_id=1971935850]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("7_qt76e")
+texture_normal = ExtResource("11_50g4q")
+texture_pressed = SubResource("CompressedTexture2D_ub8w1")
+
+[node name="TrashLabel" type="Label" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer" unique_id=1313828653]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Delete Mode"
+
+[node name="RandomGraphButton" type="Button" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer" unique_id=719532800]
+layout_mode = 2
+text = "NEW RANDOM GRAPH"
+
+[node name="ClearPacketsButton" type="Button" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer" unique_id=903462555]
+layout_mode = 2
+text = "CLEAR PACKETS"
+
+[node name="ClearAllButton" type="Button" parent="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer" unique_id=414122565]
+layout_mode = 2
+text = "DELETE ALL"
+
+[node name="LegendPanel" type="FoldableContainer" parent="CanvasLayer/HBoxContainer" unique_id=843156904]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 1
+title = "Legend"
+title_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/LegendPanel" unique_id=1339497251]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer" unique_id=503299200]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+columns = 2
+
+[node name="RequestIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer/GridContainer" unique_id=663070613]
+layout_mode = 2
+texture = ExtResource("7_tw3kd")
+
+[node name="RequestLabel" type="Label" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer/GridContainer" unique_id=1264902808]
+layout_mode = 2
+text = "Request"
+horizontal_alignment = 1
+
+[node name="DocumentIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer/GridContainer" unique_id=1174057954]
+self_modulate = Color(0, 0, 1.353256, 1)
+layout_mode = 2
+texture = ExtResource("8_gd4vy")
+
+[node name="DocumentLabel" type="Label" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer/GridContainer" unique_id=1240742803]
+layout_mode = 2
+text = "Document"
+horizontal_alignment = 1
+
+[node name="VideoIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer/GridContainer" unique_id=1817923850]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("9_qw60f")
+
+[node name="VideoLabel" type="Label" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer/GridContainer" unique_id=1883922807]
+layout_mode = 2
+text = "Video"
+horizontal_alignment = 1
+
+[node name="PingIcon" type="TextureRect" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer/GridContainer" unique_id=114559628]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+texture = ExtResource("10_eji0w")
+
+[node name="PingLabel" type="Label" parent="CanvasLayer/HBoxContainer/LegendPanel/MarginContainer/GridContainer" unique_id=190703501]
+layout_mode = 2
+text = "Ping"
+horizontal_alignment = 1
+
+[connection signal="value_changed" from="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer/MinSendDelay" to="." method="_on_min_send_delay_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer/MaxSendDelay" to="." method="_on_max_send_delay_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer/RouterTimeout" to="." method="_on_router_timeout_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2/LinkCapacity" to="." method="_on_link_capacity_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2/MaxLinkQueueSize" to="." method="_on_max_link_queue_size_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsPanel/HBoxContainer/GridContainer2/PacketSpeed" to="." method="_on_packet_speed_value_changed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer/SlowButton" to="." method="_on_slow_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer/PauseButton" to="." method="_on_pause_button_toggled"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/SpeedPanel/MarginContainer/VBoxContainer/HBoxContainer/FastButton" to="." method="_on_fast_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer/AddRouterButton" to="." method="_on_add_router_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer/AddLinkButton" to="." method="_on_add_link_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer/DisableButton" to="." method="_on_disable_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/GridContainer/TrashButton" to="." method="_on_trash_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/RandomGraphButton" to="." method="_on_random_graph_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/ClearPacketsButton" to="." method="_on_clear_packets_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/EditPanel/VBoxContainer/ClearAllButton" to="." method="_on_clear_all_button_pressed"]

@@ -1,5 +1,11 @@
 extends Node
+## Central signal bus for router state changes.
+
 
 @warning_ignore_start("unused_signal")
-signal router_disabled(id)
-signal router_enabled(id)
+
+## Emitted when a router becomes disabled.
+signal router_disabled(id: int)
+
+## Emitted when a router becomes enabled.
+signal router_enabled(id: int)
