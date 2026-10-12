@@ -59,10 +59,10 @@ user://packet_recording.csv
 In Godot, `user://` refers to the application's user data directory, not the project directory. The actual filesystem location depends on the operating system:
 
 Windows:
-%APPDATA%\Godot\app_userdata\Packet Storm\
+%APPDATA%\Godot\app_userdata\Router\
 
 Linux:
-~/.local/share/godot/app_userdata/Packet Storm/
+~/.local/share/godot/app_userdata/Router/
 
 Android:
 An app-specific sandbox directory in internal or external storage; the exact path depends on the device and export configuration.
